@@ -49,8 +49,11 @@ class DisplayStudyGroups: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studyGroup = self.dataSource.items[indexPath.row]
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let emailViewController = storyboard.instantiateViewController(withIdentifier: "ComposeEmailViewController") as! ComposeEmailViewController
-        self.navigationController?.pushViewController(emailViewController, animated: true)
+        emailViewController.university = self.university
+        emailViewController.studyGroup = studyGroup
+    self.navigationController?.pushViewController(emailViewController, animated: true)
     }
 }

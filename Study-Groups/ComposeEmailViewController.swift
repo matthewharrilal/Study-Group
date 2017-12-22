@@ -12,10 +12,14 @@ import MessageUI
 
 class ComposeEmailViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+    var university: University?
+    var studyGroup: StudyGroups?
+    
     @IBOutlet weak var userEmailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("THIS IS THE UNIVERSITY \(self.university?.nameOfUniversity)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +33,7 @@ class ComposeEmailViewController: UIViewController, MFMailComposeViewControllerD
     @IBAction func sendEmailButton(_ sender: UIButton) {
         let mailComposeViewController = configureEmail()
         if MFMailComposeViewController.canSendMail() {
-            self.present(self, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true, completion: nil)
         }
         else {
             showMailError()
@@ -39,9 +43,10 @@ class ComposeEmailViewController: UIViewController, MFMailComposeViewControllerD
     func configureEmail() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["matthewharrilal@gmail.com"])
-        mailComposerVC.setSubject("Regarding Study Group")
-        mailComposerVC.setMessageBody("Please Join Us For A Study Group", isHTML: false)
+        let studygroups = DisplayStudyGroups()
+        mailComposerVC.setToRecipients([""])
+        mailComposerVC.setSubject("Regarding Upcoming Study Group")
+        mailComposerVC.setMessageBody("There is an upcoming study group occuring at \(self.university!.nameOfUniversity!) and you're invited! This study group is taking place at \(self.studyGroup!.studyGroupLocation!) at \(self.studyGroup!.timeOfStudyGroup!). Be prepared to bring the supplies neccesary to succeed!", isHTML: false)
         return mailComposerVC
     }
     
