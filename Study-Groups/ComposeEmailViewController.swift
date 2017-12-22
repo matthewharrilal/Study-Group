@@ -43,10 +43,9 @@ class ComposeEmailViewController: UIViewController, MFMailComposeViewControllerD
     func configureEmail() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        let studygroups = DisplayStudyGroups()
         mailComposerVC.setToRecipients([""])
         mailComposerVC.setSubject("Regarding Upcoming Study Group")
-        mailComposerVC.setMessageBody("There is an upcoming study group occuring at \(self.university!.nameOfUniversity!) and you're invited! This study group is taking place at \(self.studyGroup!.studyGroupLocation!) at \(self.studyGroup!.timeOfStudyGroup!) on \(self.studyGroup!.dateOfStudyGroup). Be prepared to bring the supplies neccesary to succeed!", isHTML: false)
+        mailComposerVC.setMessageBody("There is an upcoming study group occuring at \(self.university!.nameOfUniversity!) for the subject \(self.studyGroup!.studyGroupSubject!) and you're invited! This study group is taking place at \(self.studyGroup!.studyGroupLocation!) at \(self.studyGroup!.timeOfStudyGroup!) on \(self.studyGroup!.dateOfStudyGroup!). Be prepared to bring the supplies neccesary to succeed!", isHTML: false)
         return mailComposerVC
     }
     

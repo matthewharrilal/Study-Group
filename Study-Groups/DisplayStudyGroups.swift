@@ -24,6 +24,7 @@ class DisplayStudyGroups: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.title = self.university?.nameOfUniversity
         
     }
     
