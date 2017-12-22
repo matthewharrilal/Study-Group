@@ -47,4 +47,8 @@ class DisplayStudyGroups: UITableViewController {
         }
         self.tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
