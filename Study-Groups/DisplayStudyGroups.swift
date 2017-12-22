@@ -17,6 +17,7 @@ class DisplayStudyGroups: UITableViewController {
     @objc func addTapped() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let addStudyGroupViewController = storyboard.instantiateViewController(withIdentifier: "AddStudyGroupViewController") as! AddStudyGroupViewController
+        addStudyGroupViewController.university = self.university
         self.navigationController?.pushViewController(addStudyGroupViewController, animated: true)
     }
     

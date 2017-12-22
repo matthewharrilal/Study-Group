@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="StudyGroups" representedClassName="StudyGroups" syncable="YES" codeGenerationType="class">
+        <attribute name="dateOfStudyGroup" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studyGroupLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studyGroupSubject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeOfStudyGroup" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,7 +12,7 @@
         <relationship name="studyGroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudyGroups" inverseName="university" inverseEntity="StudyGroups" syncable="YES"/>
     </entity>
     <elements>
+        <element name="StudyGroups" positionX="-54" positionY="9" width="128" height="120"/>
         <element name="University" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="StudyGroups" positionX="-54" positionY="9" width="128" height="105"/>
     </elements>
 </model>
