@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0E1A141FECD49D00AA4D72 /* AddUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E1A131FECD49D00AA4D72 /* AddUniversityViewController.swift */; };
 		1C4FAF581FE234F400CDD951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FAF571FE234F400CDD951 /* AppDelegate.swift */; };
 		1C4FAF5A1FE234F400CDD951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FAF591FE234F400CDD951 /* ViewController.swift */; };
 		1C4FAF5D1FE234F400CDD951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4FAF5B1FE234F400CDD951 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0E1A131FECD49D00AA4D72 /* AddUniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUniversityViewController.swift; sourceTree = "<group>"; };
 		1C4FAF541FE234F400CDD951 /* Study-Groups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Groups.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4FAF571FE234F400CDD951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C4FAF591FE234F400CDD951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				1C4FAF5E1FE234F400CDD951 /* Study_Groups.xcdatamodeld */,
 				1C4FAF6C1FE239C200CDD951 /* TableViewAbstraction.swift */,
 				1C4FAF6E1FE23B7B00CDD951 /* CoreDataStack.swift */,
+				1C0E1A131FECD49D00AA4D72 /* AddUniversityViewController.swift */,
 			);
 			path = "Study-Groups";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0E1A141FECD49D00AA4D72 /* AddUniversityViewController.swift in Sources */,
 				1C4FAF6F1FE23B7B00CDD951 /* CoreDataStack.swift in Sources */,
 				1C4FAF5A1FE234F400CDD951 /* ViewController.swift in Sources */,
 				1C4FAF601FE234F400CDD951 /* Study_Groups.xcdatamodeld in Sources */,
