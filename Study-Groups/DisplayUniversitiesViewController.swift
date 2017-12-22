@@ -27,6 +27,7 @@ class DisplayUniversitiesViewController: UITableViewController {
         super.viewWillAppear(true)
         
         let fetch = fetchRequest(namOfEntity: "University", type: University.self)
+        print("this is the fetch \(fetch)")
         self.dataSource.items = fetch!
         tableView.dataSource = self.dataSource
         dataSource.configureCell = {(tableView, indexPath) -> UITableViewCell in
