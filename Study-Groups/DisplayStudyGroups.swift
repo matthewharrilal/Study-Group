@@ -14,8 +14,15 @@ class DisplayStudyGroups: UITableViewController {
     var university: University?
     var dataSource = TableViewDataSource(items: [StudyGroups]())
     
+    @objc func addTapped() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let addStudyGroupViewController = storyboard.instantiateViewController(withIdentifier: "AddStudyGroupViewController") as! AddStudyGroupViewController
+        self.navigationController?.pushViewController(addStudyGroupViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
     }
     
     override func didReceiveMemoryWarning() {
