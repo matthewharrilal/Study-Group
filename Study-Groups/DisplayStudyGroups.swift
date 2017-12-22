@@ -24,9 +24,27 @@ class DisplayStudyGroups: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard let studyGroups = self.university?.studyGroup?.allObjects as? [StudyGroups] else {return}
+        
+        dataSource.items = studyGroups
+        tableView.dataSource = self.dataSource
+        dataSource.configureCell = {(tableView, indexPath) -> UITableViewCell in
+            let group = studyGroups[indexPath.row]
+    
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            cell?.textLabel?.text = group.studyGroupSubject
+            cell?.detailTextLabel?.text = "Meeting at \(group.studyGroupLocation!) at \(group.timeOfStudyGroup!) on \(group.dateOfStudyGroup!)"
+            return cell!
+        }
+        self.tableView.reloadData()
     }
 }
