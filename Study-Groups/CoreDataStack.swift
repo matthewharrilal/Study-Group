@@ -24,6 +24,12 @@ public class CoreDataStack {
         return container
     }()
     
+    lazy var viewContext: NSManagedObjectContext = {
+        let viewContext = persistentContainer.viewContext
+        viewContext.persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
+        return viewContext
+    }()
+    
     lazy var privateContext: NSManagedObjectContext = {
         let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateContext.persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator

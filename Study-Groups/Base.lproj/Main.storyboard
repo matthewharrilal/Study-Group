@@ -29,11 +29,17 @@
                                 <rect key="frame" x="110" y="339" width="155" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add University"/>
+                                <connections>
+                                    <action selector="addUniversityButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LWf-JA-Lgv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addUniversityTextField" destination="zdV-Ht-hKc" id="HnP-RC-Toq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1dx-Dc-3AG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="1dx-Dc-3AG">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1dx-Dc-3AG" id="FVa-c3-N1O">
@@ -63,7 +69,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kEl-ek-DvX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lFE-9u-e1i"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lFE-9u-e1i">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="mKf-m7-js9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjU-SU-xqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
