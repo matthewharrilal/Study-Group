@@ -18,6 +18,7 @@
 		1C4FAF651FE234F400CDD951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4FAF631FE234F400CDD951 /* LaunchScreen.storyboard */; };
 		1C4FAF6D1FE239C200CDD951 /* TableViewAbstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FAF6C1FE239C200CDD951 /* TableViewAbstraction.swift */; };
 		1C4FAF6F1FE23B7B00CDD951 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FAF6E1FE23B7B00CDD951 /* CoreDataStack.swift */; };
+		1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */; };
 		E262A9F4FE825D0ABAF50883 /* Pods_Study_Groups.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B3CBEC55909987D86A3F5C /* Pods_Study_Groups.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1C4FAF661FE234F400CDD951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C4FAF6C1FE239C200CDD951 /* TableViewAbstraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAbstraction.swift; sourceTree = "<group>"; };
 		1C4FAF6E1FE23B7B00CDD951 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStudyGroups.swift; sourceTree = "<group>"; };
 		48F1E5A86A0C05B8FF7256D6 /* Pods-Study-Groups.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study-Groups.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study-Groups/Pods-Study-Groups.release.xcconfig"; sourceTree = "<group>"; };
 		5FCEAF9FDE7187BD659E1DDC /* Pods-Study-Groups.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study-Groups.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study-Groups/Pods-Study-Groups.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3CBEC55909987D86A3F5C /* Pods_Study_Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				1C4FAF6E1FE23B7B00CDD951 /* CoreDataStack.swift */,
 				1C0E1A131FECD49D00AA4D72 /* AddUniversityViewController.swift */,
 				1C0E1A151FECD83300AA4D72 /* DisplayUniversitiesViewController.swift */,
+				1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */,
 			);
 			path = "Study-Groups";
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0E1A191FECDACC00AA4D72 /* CoreDataFetchRequestAbstraction.swift in Sources */,
+				1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */,
 				1C0E1A141FECD49D00AA4D72 /* AddUniversityViewController.swift in Sources */,
 				1C4FAF6F1FE23B7B00CDD951 /* CoreDataStack.swift in Sources */,
 				1C4FAF5A1FE234F400CDD951 /* ViewController.swift in Sources */,

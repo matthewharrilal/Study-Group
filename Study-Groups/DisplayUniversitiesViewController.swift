@@ -38,4 +38,12 @@ class DisplayUniversitiesViewController: UITableViewController {
         }
         self.tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let displayStudyGroups = storyboard.instantiateViewController(withIdentifier: "DisplayStudyGroups") as! DisplayStudyGroups
+        let university = self.dataSource.items[indexPath.row]
+        displayStudyGroups.university = university
+        self.navigationController?.pushViewController(displayStudyGroups, animated: true)
+    }
 }
