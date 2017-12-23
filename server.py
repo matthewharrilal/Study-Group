@@ -62,7 +62,7 @@ class User(Resource):
         hashed_password = bcrypt.hashpw(encoded_password, bcrypt.gensalt(rounds))
 
         # Then update the value in that json with the new hashed password as oppose to the unhashed non safe version
-        requested_json['password'] = hashed
+        requested_json['password'] = hashed_password
 
         if 'email' and 'password' in requested_json:
             study_group_collection.insert_one(requested_json)
@@ -95,8 +95,14 @@ class User(Resource):
             return(user_find, 200 , None)
     
 
-        
+api.add_resource(User, '/users')
 
+@api.representation('application/json')
+def output_json(data, code, headers=None):
+    resp = make_response(JSONEncoder().encode(data), code)
+    resp.headers.extend(headers or {})
+    return resp
+# Encodes our resouces for us
 
 
 if __name__ == '__main__':
