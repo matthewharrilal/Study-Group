@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import Moya
-import Alamofire
 
 struct UniversityInformation {
     let name: String
