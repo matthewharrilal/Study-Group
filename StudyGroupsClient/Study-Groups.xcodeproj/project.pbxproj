@@ -21,6 +21,7 @@
 		1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */; };
 		1CA88EAD1FEDA272008091C9 /* AddStudyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */; };
 		1CA88EAF1FEDB52D008091C9 /* ComposeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */; };
+		1CF8658B1FFB541300E2354B /* UniversityModelingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8658A1FFB541300E2354B /* UniversityModelingLayer.swift */; };
 		E262A9F4FE825D0ABAF50883 /* Pods_Study_Groups.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B3CBEC55909987D86A3F5C /* Pods_Study_Groups.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStudyGroups.swift; sourceTree = "<group>"; };
 		1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudyGroupViewController.swift; sourceTree = "<group>"; };
 		1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeEmailViewController.swift; sourceTree = "<group>"; };
+		1CF8658A1FFB541300E2354B /* UniversityModelingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityModelingLayer.swift; sourceTree = "<group>"; };
 		48F1E5A86A0C05B8FF7256D6 /* Pods-Study-Groups.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study-Groups.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study-Groups/Pods-Study-Groups.release.xcconfig"; sourceTree = "<group>"; };
 		5FCEAF9FDE7187BD659E1DDC /* Pods-Study-Groups.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study-Groups.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study-Groups/Pods-Study-Groups.debug.xcconfig"; sourceTree = "<group>"; };
 		91B3CBEC55909987D86A3F5C /* Pods_Study_Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 		1C4FAF4B1FE234F400CDD951 = {
 			isa = PBXGroup;
 			children = (
+				1CF865891FFB53FA00E2354B /* Networking */,
 				1C0E1A171FECDAAD00AA4D72 /* Helpers */,
 				1C4FAF561FE234F400CDD951 /* Study-Groups */,
 				1C4FAF551FE234F400CDD951 /* Products */,
@@ -104,6 +107,14 @@
 				1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */,
 			);
 			path = "Study-Groups";
+			sourceTree = "<group>";
+		};
+		1CF865891FFB53FA00E2354B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1CF8658A1FFB541300E2354B /* UniversityModelingLayer.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		760472CBB6EC7CDAF41F00D1 /* Pods */ = {
@@ -229,9 +240,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Study-Groups/Pods-Study-Groups-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -265,6 +283,7 @@
 			files = (
 				1C0E1A191FECDACC00AA4D72 /* CoreDataFetchRequestAbstraction.swift in Sources */,
 				1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */,
+				1CF8658B1FFB541300E2354B /* UniversityModelingLayer.swift in Sources */,
 				1C0E1A141FECD49D00AA4D72 /* AddUniversityViewController.swift in Sources */,
 				1C4FAF6F1FE23B7B00CDD951 /* CoreDataStack.swift in Sources */,
 				1CA88EAF1FEDB52D008091C9 /* ComposeEmailViewController.swift in Sources */,

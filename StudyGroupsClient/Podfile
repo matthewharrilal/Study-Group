@@ -7,5 +7,6 @@ target 'Study-Groups' do
 
   # Pods for Study-Groups
 	pod 'SwiftLinter'
+	pod 'Moya'
 
 end
