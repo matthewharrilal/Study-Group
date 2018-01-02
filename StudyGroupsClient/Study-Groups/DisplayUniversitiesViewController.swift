@@ -17,13 +17,6 @@ class DisplayUniversitiesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestUniversities(target: .ShowUniversities, success: { (response) in
-            print("This is the response from the network request \(try? response.mapJSON())")
-        }, error: { (error) in
-            print("This is the error from the network request \(error.localizedDescription)")
-        }) { (moyaError) in
-            print("This is the error \(moyaError.errorDescription), as well as the reason \(moyaError.failureReason)")
-        }
     }
     
     override func didReceiveMemoryWarning() {

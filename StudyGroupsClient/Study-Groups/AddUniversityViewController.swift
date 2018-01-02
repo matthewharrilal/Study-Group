@@ -27,6 +27,16 @@ class AddUniversityViewController: UIViewController {
         // Grab the name of the university that the user passes in
         guard let universityName = addUniversityTextField.text else {return}
         
+        NameOfUniversity.universityName = universityName
+        
+        requestUniversities(target: .ShowUniversities, success: { (response) in
+            print("This is the response from the network request \(try? response.mapJSON())")
+        }, error: { (error) in
+            print("This is the error from the network request \(error.localizedDescription)")
+        }) { (moyaError) in
+            print("This is the error \(moyaError.errorDescription), as well as the reason \(moyaError.failureReason)")
+        }
+        
         // Accesses the view context
         let viewContext = CoreDataStack.singletonInstance.viewContext
         // Make an instance of the university
@@ -37,5 +47,7 @@ class AddUniversityViewController: UIViewController {
         CoreDataStack.singletonInstance.saveTo(context: viewContext)
         self.navigationController?.popViewController(animated: true)
     }
+    
+   
     
 }

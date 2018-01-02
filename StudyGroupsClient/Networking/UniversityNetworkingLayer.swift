@@ -16,6 +16,9 @@ enum DifferentUniversities {
     case ShowUniversities
 }
 
+struct NameOfUniversity {
+    static var universityName = ""
+}
 extension DifferentUniversities: TargetType {
     var baseURL: URL {
         let baseUrl = URL(string: "http://universities.hipolabs.com")
@@ -48,7 +51,8 @@ extension DifferentUniversities: TargetType {
         switch self {
         // Additional data for the network request we are adding parameters
         case .ShowUniversities:
-            return .requestParameters(parameters: ["name": "Roanoke"], encoding: URLEncoding.default)
+            print("This is the name of the university: \(NameOfUniversity.universityName)")
+            return .requestParameters(parameters: ["name": "\(NameOfUniversity.universityName)"], encoding: URLEncoding.default)
         }
     }
     
