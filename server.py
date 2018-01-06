@@ -90,6 +90,14 @@ class User(Resource):
             print("The user could not be fetched")
             return (None, 401, None)
 
+
+class University(Resource):
+
+    # This function is essentially going to be the function that takes care of adding the university name
+    def post(self):
+        # So the way we are going to go
+
+
 api.add_resource(User, '/users')
 
 @api.representation('application/json')
