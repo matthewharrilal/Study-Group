@@ -112,13 +112,19 @@ class University(Resource):
         # Now that we have access to the headers we have to see if the account even exists first
         account_find = study_group_collection.find_one({'email': auth.username})
 
-         # Now that we have the account we have to verify that it actually exists but is m
+         # Now that we have the account we have to verify that it actually exists but we have to verify that the user is logged in
+        encoded_password = auth.password.encode('utf-8')
+
+        if bcrypt.checkpw(encoded_password, account_find['password']):
+            university_collection.insert_one(request_json, auth.username)
+            return request_json
 
 
 
 
 
-api.add_resource(User, '/users', '/university')
+api.add_resource(User, '/users')
+api.add_resource(University, '/university')
 
 @api.representation('application/json')
 def output_json(data, code, headers=None):
