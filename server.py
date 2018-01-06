@@ -81,8 +81,10 @@ class User(Resource):
         auth = request.authorization
         user_find = study_group_collection.find_one({'email': auth.username})
 
+        encoded_password = auth.password.encode('utf-8')
+
         # Now we esentially implement the error handling
-        if user_find is not None:
+        if bcrypt.checkpw(encoded_password, user_find['password']) is not None:
             user_find.pop('password')
             print('The user has succesfully been fetched')
             return (user_find, 200, None)
@@ -94,11 +96,29 @@ class User(Resource):
 class University(Resource):
 
     # This function is essentially going to be the function that takes care of adding the university name
+    @authenticated_request
     def post(self):
-        # So the way we are going to go
+        # So this function is what is going to take care of posting the univeristy to the database
+
+        # So we have to create a new collection that holds the universities
+        university_collection = database.university
+
+        # Now that we have the university collection we have to write the boiler plate code to see if the user is logged in
+        auth = request.authorization
+
+        # As well as the resources that the user is trying to send over
+        request_json = request.json
+
+        # Now that we have access to the headers we have to see if the account even exists first
+        account_find = study_group_collection.find_one({'email': auth.username})
+
+         # Now that we have the account we have to verify that it actually exists but is m
 
 
-api.add_resource(User, '/users')
+
+
+
+api.add_resource(User, '/users', '/university')
 
 @api.representation('application/json')
 def output_json(data, code, headers=None):
