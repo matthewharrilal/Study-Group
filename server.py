@@ -159,6 +159,7 @@ class StudyGroup(Resource):
 
         # Checks for two things make sure that the user is logged in as well as they have provided a university
         if bcrypt.checkpw(encoded_password, user_account_find['password']) and university_find is not None:
+            pdb.set_trace()
             print("The user has posted a study group")
             study_group_collection.insert_one(request_json)
             return request_json, 201, None
