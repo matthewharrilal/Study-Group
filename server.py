@@ -24,11 +24,14 @@ study_group_collection = database.study_groups
 def authenticated_request(func):
     def wrapper(*args, **kwargs):
         auth = request.authorization
+        print('***********')
+        print(request.authorization)
+        print('***********')
         auth_code = request.headers['authorization']
-        email, password = decode(auth_code)
+        email,password = decode(auth_code)
+
         if email is not None and password is not None:
-            user_collection = database.posts
-            user = user_collection.find_one({'email': email})
+            user = study_group_collection.find_one({'email': email})
             if user is not None:
                 encoded_password = password.encode('utf-8')
                 if bcrypt.checkpw(encoded_password, user['password']):
@@ -72,28 +75,20 @@ class User(Resource):
 
     @authenticated_request
     def get(self):
-        '''This function serves the purpose of fetching the user or in terms of the client it serves the 
-        purpose of the user logging in because when a user loggin in we are essentially fetching their credentials
-        which is a get request'''
+        # This is essentially the function that we are going to be using to fetch the users
 
-        # If they are logging in they are loggin in with verified credentials therefore we know we pass credentials
-        # through the headers therefore we have to access their credentials in the headers that were sent
+        # Since we are fetching users we have to take whatever the user
         auth = request.authorization
-
-        # Now that we have the credentials we have to see if the user actually exists in the database
-        # therefore we have to find the user
         user_find = study_group_collection.find_one({'email': auth.username})
 
-        # Now we check if we actually got results back from the search for that user
+        # Now we esentially implement the error handling
         if user_find is not None:
-            # If the results aren't nil that means we actually got a user back therefore what we want to do 
-            # pop the passwords so that doesnt get sent back with us
-
-            # And on a side not the decorator handles verifing the user when we search for the user in the database
             user_find.pop('password')
-            print("The user has succesfully been fetched")
-            return(user_find, 200 , None)
-    
+            print('The user has succesfully been fetched')
+            return (user_find, 200, None)
+        else:
+            print("The user could not be fetched")
+            return (None, 401, None)
 
 api.add_resource(User, '/users')
 
