@@ -137,6 +137,11 @@ class University(Resource):
             print('The user has been returned their university')
             return university_find, 200, None
 
+class StudyGroup(Resource):
+    @authenticated_request
+    def post(self):
+        # This function s
+
 
 
 api.add_resource(User, '/users')
