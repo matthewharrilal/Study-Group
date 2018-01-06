@@ -119,7 +119,23 @@ class University(Resource):
             university_collection.insert_one(request_json, auth.username)
             return request_json
 
+    @authenticated_request
+    def get(self):
 
+        university_collection = database.university
+        # This function is what we are going to be using to fetching the university for the user that is logged in
+        # So first we have to verify that the user is actually logged in
+        auth = request.authorization
+
+        user_account_find = study_group_collection.find_one({'email': auth.username})
+
+        encoded_password = auth.password.encode('utf-8')
+
+        university_find = university_collection.find_one({'email': auth.username})
+
+        if bcrypt.checkpw(encoded_password, user_account_find['password']) and university_find is not None:
+            print('The user has been returned their university')
+            return university_find, 200, None
 
 
 
