@@ -19,7 +19,7 @@ app.db = client.StudyGroupsApplication
 database = app.db
 rounds = app.bcrypt_rounds = 5
 api = Api(app)
-study_group_collection = database.study_groups
+user_collection = database.users
 
 def authenticated_request(func):
     def wrapper(*args, **kwargs):
@@ -31,7 +31,7 @@ def authenticated_request(func):
         email,password = decode(auth_code)
 
         if email is not None and password is not None:
-            user = study_group_collection.find_one({'email': email})
+            user = user_collection.find_one({'email': email})
             if user is not None:
                 encoded_password = password.encode('utf-8')
                 if bcrypt.checkpw(encoded_password, user['password']):
@@ -68,7 +68,7 @@ class User(Resource):
         requested_json['password'] = hashed_password
 
         if 'email' and 'password' in requested_json:
-            study_group_collection.insert_one(requested_json)
+            user_collection.insert_one(requested_json)
             requested_json.pop('password')
             print('The user has been succesfully inserted')
             return(requested_json, 201, None)
@@ -79,7 +79,7 @@ class User(Resource):
 
         # Since we are fetching users we have to take whatever the user
         auth = request.authorization
-        user_find = study_group_collection.find_one({'email': auth.username})
+        user_find = user_collection.find_one({'email': auth.username})
 
         encoded_password = auth.password.encode('utf-8')
 
@@ -110,12 +110,12 @@ class University(Resource):
         request_json = request.json
 
         # Now that we have access to the headers we have to see if the account even exists first
-        account_find = study_group_collection.find_one({'email': auth.username})
+        account_find = user_collection.find_one({'email': auth.username})
 
          # Now that we have the account we have to verify that it actually exists but we have to verify that the user is logged in
         encoded_password = auth.password.encode('utf-8')
 
-        if bcrypt.checkpw(encoded_password, account_find['password']):
+        if bcrypt.checkpw(encoded_password, account_find['password']) and 'university_name' in request_json:
             university_collection.insert_one(request_json, auth.username)
             return request_json
 
@@ -127,7 +127,7 @@ class University(Resource):
         # So first we have to verify that the user is actually logged in
         auth = request.authorization
 
-        user_account_find = study_group_collection.find_one({'email': auth.username})
+        user_account_find = user_collection.find_one({'email': auth.username})
 
         encoded_password = auth.password.encode('utf-8')
 
@@ -140,7 +140,29 @@ class University(Resource):
 class StudyGroup(Resource):
     @authenticated_request
     def post(self):
-        # This function s
+        # This function serves the purpose of posting resources to the database therefore we are going to need access to the collection\
+        auth = request.authorization
+
+        request_json = request.json
+
+        university_collection = database.university
+
+        user_account_find = user_collection.find_one({'email': auth.username})
+
+        university_find = university_collection.find_one({'email': auth.username})
+
+
+
+        # Now that we have the account we have to actually verify if the account exists from there in addition to making sure
+        # that the user is logged in
+        encoded_password = auth.password.encode('utf-8')
+
+        # Checks for two things make sure that the user is logged in as well as they have provided a university
+        if bcrypt.checkpw(encoded_password, user_account_find['password']) and university_find is not None:
+            print("The user has posted a study group")
+
+
+
 
 
 
