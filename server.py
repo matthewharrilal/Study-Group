@@ -188,11 +188,32 @@ class StudyGroup(Resource):
             return study_group_find, 200, None
 
 
+class StudyGroupsForAllUsers(Resource):
+    # This function is what finds the study groups for all users
+    @authenticated_request
+    def get(self):
+        auth = request.authorization
+
+        encoded_password = auth.password.encode('utf-8')
+
+        name_of_university = request.args.get('university_name')
+
+
+        user_account_find = user_collection.find_one({'email': auth.username})
+
+        university_collection = database.university
+
+        university_find = list(university_collection.find({'university_name': name_of_university}))
+
+        if bcrypt.checkpw(encoded_password, user_account_find['password']):
+            print('This the name of the users from that university find %s' %(university_find))
+
 
 
 api.add_resource(User, '/users')
 api.add_resource(University, '/university')
 api.add_resource(StudyGroup, '/study_groups')
+api.add_resource(StudyGroupsForAllUsers, '/all_study_groups')
 
 @api.representation('application/json')
 def output_json(data, code, headers=None):
