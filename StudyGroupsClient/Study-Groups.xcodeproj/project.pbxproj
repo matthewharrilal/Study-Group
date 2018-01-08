@@ -22,6 +22,7 @@
 		1C6C8C932003CC0B00BA0922 /* UserModelingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C922003CC0B00BA0922 /* UserModelingLayer.swift */; };
 		1C6C8C972003CC8200BA0922 /* BasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C962003CC8200BA0922 /* BasicAuth.swift */; };
 		1C6C8C992003D43200BA0922 /* UserNetworkingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C982003D43200BA0922 /* UserNetworkingLayer.swift */; };
+		1C6C8C9B2003FAAD00BA0922 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C9A2003FAAD00BA0922 /* Alerts.swift */; };
 		1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */; };
 		1CA88EAD1FEDA272008091C9 /* AddStudyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */; };
 		1CA88EAF1FEDB52D008091C9 /* ComposeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */; };
@@ -48,6 +49,7 @@
 		1C6C8C922003CC0B00BA0922 /* UserModelingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelingLayer.swift; sourceTree = "<group>"; };
 		1C6C8C962003CC8200BA0922 /* BasicAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuth.swift; sourceTree = "<group>"; };
 		1C6C8C982003D43200BA0922 /* UserNetworkingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingLayer.swift; sourceTree = "<group>"; };
+		1C6C8C9A2003FAAD00BA0922 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStudyGroups.swift; sourceTree = "<group>"; };
 		1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudyGroupViewController.swift; sourceTree = "<group>"; };
 		1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeEmailViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				1C6C8C962003CC8200BA0922 /* BasicAuth.swift */,
+				1C6C8C9A2003FAAD00BA0922 /* Alerts.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -321,6 +324,7 @@
 				1C4FAF6D1FE239C200CDD951 /* TableViewAbstraction.swift in Sources */,
 				1CF8658D1FFB573600E2354B /* UniversityNetworkingLayer.swift in Sources */,
 				1C6C8C972003CC8200BA0922 /* BasicAuth.swift in Sources */,
+				1C6C8C9B2003FAAD00BA0922 /* Alerts.swift in Sources */,
 				1C4FAF581FE234F400CDD951 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
