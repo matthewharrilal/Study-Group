@@ -58,13 +58,16 @@ extension DifferentUsers: TargetType {
     
     var task: Task {
         switch self {
-        case .showUsers:
-            print("This is the")
+        case .showUsers, .createUsers:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        <#code#>
+        switch self {
+        case .createUsers, .showUsers:
+            return 
+        }
     }
     
     
