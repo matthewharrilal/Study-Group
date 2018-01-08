@@ -45,6 +45,14 @@ class AddUniversityViewController: UIViewController {
         // Set that value in core data then save that value and then go back to that view controller
         university.setValue(universityName, forKey: "nameOfUniversity")
         CoreDataStack.singletonInstance.saveTo(context: viewContext)
+        
+        sendUniversityToServer(target: .sendUniversity, success: { (response) in
+            print("This is the response \(try! response.mapJSON())")
+        }, error: { (error) in
+            print("This is the error \(error.localizedDescription)")
+        }) { (moyaError) in
+            print("This is the moya error \(moyaError.errorDescription)")
+        }
         self.navigationController?.popViewController(animated: true)
     }
     

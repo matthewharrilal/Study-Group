@@ -119,8 +119,8 @@ class University(Resource):
          # Now that we have the account we have to verify that it actually exists but we have to verify that the user is logged in
         encoded_password = auth.password.encode('utf-8')
 
-        if bcrypt.checkpw(encoded_password, account_find['password']) and 'university_name' in request_json:
-            university_collection.insert_one(request_json, auth.username)
+        if bcrypt.checkpw(encoded_password, account_find['password']):
+            university_collection.insert_one(request_json)
             return request_json
 
     @authenticated_request
