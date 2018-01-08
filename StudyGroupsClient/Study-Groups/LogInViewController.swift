@@ -33,6 +33,7 @@ class LogInViewController: UIViewController {
         
         userNetworking(target: .showUsers, success: { (response) in
             print("This is the response \(try? response.mapJSON())")
+            self.performSegue(withIdentifier: "showUniversity", sender: nil)
         }, error: { (error) in
             print("This is the error \(error.localizedDescription)")
         }) { (moyaError) in
