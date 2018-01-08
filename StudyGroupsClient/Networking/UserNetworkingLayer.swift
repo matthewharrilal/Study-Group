@@ -67,12 +67,16 @@ extension DifferentUsers: TargetType {
     }
     
     var headers: [String : String]? {
-        let user: User? = nil 
+        let user: User? = nil
         switch self {
         case .createUsers, .showUsers:
             // Put some logic in this task
             return ["Authorization": (user?.credential)!]
         }
+    }
+    
+    func userNetworking(target: DifferentUsers, success successCallBack: @escaping (Response) -> Void, error errorCallBack: @escaping(Swift.Error) -> Void, failure failureCallBack: @escaping (MoyaError) -> Void) {
+        
     }
     
     
