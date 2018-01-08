@@ -71,7 +71,7 @@ class User(Resource):
             user_collection.insert_one(requested_json)
             requested_json.pop('password')
             print('The user has been succesfully inserted')
-            return(requested_json, 201, None)
+            return(user_collection, 201, None)
 
     @authenticated_request
     def get(self):
@@ -141,6 +141,7 @@ class StudyGroup(Resource):
     @authenticated_request
     def post(self):
         # This function serves the purpose of posting resources to the database therefore we are going to need access to the collection\
+
         auth = request.authorization
 
         request_json = request.json
@@ -163,6 +164,28 @@ class StudyGroup(Resource):
             print("The user has posted a study group")
             study_group_collection.insert_one(request_json)
             return request_json, 201, None
+
+    @authenticated_request
+    def get(self):
+        # This function is essentially to serve the purposes of fetching material
+        # First we need to see if the user logged in because how else are they going to fetch their materials
+        auth = request.authorization
+
+        account_find = user_collection.find_one({'email': auth.username})
+
+        encoded_password = auth.password.encode('utf-8')
+
+        university_collection = database.university
+
+        study_group_collection = database.study_groups
+
+        university_find = university_collection.find_one({'email': auth.username})
+
+        study_group_find = study_group_collection.find_one({'email': auth.username})
+
+        if bcrypt.checkpw(encoded_password, account_find['password']) and university_find is not None:
+            print('The users study groups have been fetched')
+            return study_group_find, 200, None
 
 
 
