@@ -11,12 +11,15 @@ import UIKit
 import Moya
 import Alamofire
 
+
 enum DifferentUsers {
     case showUsers
     case createUsers
 }
 
 extension DifferentUsers: TargetType {
+
+    
     var baseURL: URL {
         let baseUrl = URL(string: "http://127.0.0.1:5000")
         return baseUrl!
@@ -64,9 +67,12 @@ extension DifferentUsers: TargetType {
     }
     
     var headers: [String : String]? {
+        let user: User?
+        
         switch self {
         case .createUsers, .showUsers:
-            return 
+            // Put some logic in this task
+            return ["Authorization": (user?.credential)!]
         }
     }
     
