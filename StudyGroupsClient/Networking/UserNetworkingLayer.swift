@@ -67,8 +67,7 @@ extension DifferentUsers: TargetType {
     }
     
     var headers: [String : String]? {
-        let user: User?
-        
+        let user: User? = nil 
         switch self {
         case .createUsers, .showUsers:
             // Put some logic in this task
