@@ -24,6 +24,7 @@
 		1C6C8C992003D43200BA0922 /* UserNetworkingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C982003D43200BA0922 /* UserNetworkingLayer.swift */; };
 		1C6C8C9B2003FAAD00BA0922 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C9A2003FAAD00BA0922 /* Alerts.swift */; };
 		1C6C8C9D2004007400BA0922 /* SendUniversityToServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C9C2004007400BA0922 /* SendUniversityToServer.swift */; };
+		1C6C8C9F2004043900BA0922 /* UniversityFromServerModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C8C9E2004043900BA0922 /* UniversityFromServerModeling.swift */; };
 		1CA88EAB1FED3E7A008091C9 /* DisplayStudyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */; };
 		1CA88EAD1FEDA272008091C9 /* AddStudyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */; };
 		1CA88EAF1FEDB52D008091C9 /* ComposeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */; };
@@ -52,6 +53,7 @@
 		1C6C8C982003D43200BA0922 /* UserNetworkingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingLayer.swift; sourceTree = "<group>"; };
 		1C6C8C9A2003FAAD00BA0922 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1C6C8C9C2004007400BA0922 /* SendUniversityToServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUniversityToServer.swift; sourceTree = "<group>"; };
+		1C6C8C9E2004043900BA0922 /* UniversityFromServerModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityFromServerModeling.swift; sourceTree = "<group>"; };
 		1CA88EAA1FED3E7A008091C9 /* DisplayStudyGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStudyGroups.swift; sourceTree = "<group>"; };
 		1CA88EAC1FEDA272008091C9 /* AddStudyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudyGroupViewController.swift; sourceTree = "<group>"; };
 		1CA88EAE1FEDB52D008091C9 /* ComposeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeEmailViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				1C6C8C922003CC0B00BA0922 /* UserModelingLayer.swift */,
 				1C6C8C982003D43200BA0922 /* UserNetworkingLayer.swift */,
 				1C6C8C9C2004007400BA0922 /* SendUniversityToServer.swift */,
+				1C6C8C9E2004043900BA0922 /* UniversityFromServerModeling.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				1CF8658B1FFB541300E2354B /* UniversityModelingLayer.swift in Sources */,
 				1C0E1A141FECD49D00AA4D72 /* AddUniversityViewController.swift in Sources */,
 				1C4FAF6F1FE23B7B00CDD951 /* CoreDataStack.swift in Sources */,
+				1C6C8C9F2004043900BA0922 /* UniversityFromServerModeling.swift in Sources */,
 				1CA88EAF1FEDB52D008091C9 /* ComposeEmailViewController.swift in Sources */,
 				1CA88EAD1FEDA272008091C9 /* AddStudyGroupViewController.swift in Sources */,
 				1C4FAF5A1FE234F400CDD951 /* ViewController.swift in Sources */,
