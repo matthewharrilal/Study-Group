@@ -12,6 +12,11 @@ import Moya
 import Alamofire
 
 
+struct EmailAndPassword {
+    static var email = ""
+    static var password = ""
+}
+
 enum DifferentUsers {
     case showUsers
     case createUsers
@@ -73,32 +78,31 @@ extension DifferentUsers: TargetType {
     
     // Handles the headers if there are any in the network request
     var headers: [String : String]? {
-        let user: User? = nil
+        let user = User(email: EmailAndPassword.email, password: EmailAndPassword.password)
         switch self {
         case .createUsers, .showUsers:
             // Put some logic in this task
-            return ["Authorization": (user?.credential)!]
+            return ["Authorization": (user.credential)!]
         }
     }
-    
-    // This function we have to do through the provider all the requests are made through this class
-    // The parameters that are needed for this function are the target what data are we using to make this network request
-    // The success callback is called after the lifetime of the function ends as well as the error callback and the failure callback are error handline
-    func userNetworking(target: DifferentUsers, success successCallBack: @escaping (Response) -> Void, error errorCallBack: @escaping(Swift.Error) -> Void, failure failureCallBack: @escaping (MoyaError) -> Void) {
-        let provider = MoyaProvider<DifferentUsers>()
-        provider.request(target) { (result) in
-            switch result {
-            case .success(let response):
-                if response.statusCode >= 200 && response.statusCode <= 300 {
-                    // This function is going to end the lifetime before the response is done being completed therefore by making it escaping we can have the response come back at a later time
-                    successCallBack(response)
-                }
-            case .failure(let error):
-                // If there is a failure then what we can do is that we can be able to see if there is an error and get the response back from the error
-                errorCallBack(error)
+}
+
+// This function we have to do through the provider all the requests are made through this class
+// The parameters that are needed for this function are the target what data are we using to make this network request
+// The success callback is called after the lifetime of the function ends as well as the error callback and the failure callback are error handline
+func userNetworking(target: DifferentUsers, success successCallBack: @escaping (Response) -> Void, error errorCallBack: @escaping(Swift.Error) -> Void, failure failureCallBack: @escaping (MoyaError) -> Void) {
+    let provider = MoyaProvider<DifferentUsers>()
+    provider.request(target) { (result) in
+        switch result {
+        case .success(let response):
+            if response.statusCode >= 200 && response.statusCode <= 300 {
+                // This function is going to end the lifetime before the response is done being completed therefore by making it escaping we can have the response come back at a later time
+                print("The response was correct")
+                successCallBack(response)
             }
+        case .failure(let error):
+            // If there is a failure then what we can do is that we can be able to see if there is an error and get the response back from the error
+            errorCallBack(error)
         }
     }
-    
-    
 }
