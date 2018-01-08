@@ -76,7 +76,17 @@ extension DifferentUsers: TargetType {
     }
     
     func userNetworking(target: DifferentUsers, success successCallBack: @escaping (Response) -> Void, error errorCallBack: @escaping(Swift.Error) -> Void, failure failureCallBack: @escaping (MoyaError) -> Void) {
-        
+        let provider = MoyaProvider<DifferentUsers>()
+        provider.request(target) { (result) in
+            switch result {
+            case .success(let response):
+                if response.statusCode >= 200 && response.statusCode <= 300 {
+                    successCallBack(response)
+                }
+            case .failure(let error):
+                errorCallBack(error)
+            }
+        }
     }
     
     
