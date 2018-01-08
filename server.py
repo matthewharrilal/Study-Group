@@ -83,11 +83,15 @@ class User(Resource):
 
         encoded_password = auth.password.encode('utf-8')
 
+        university_collection = database.university
+
+        university_find = university_collection.find_one({'email': auth.username})
+
         # Now we esentially implement the error handling
         if bcrypt.checkpw(encoded_password, user_find['password']) is not None:
             user_find.pop('password')
             print('The user has succesfully been fetched')
-            return (user_find, 200, None)
+            return (user_find, university_find,200, None)
         else:
             print("The user could not be fetched")
             return (None, 401, None)
