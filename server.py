@@ -181,7 +181,7 @@ class StudyGroup(Resource):
 
         university_find = university_collection.find_one({'email': auth.username})
 
-        study_group_find = study_group_collection.find_one({'email': auth.username})
+        study_group_find = list(study_group_collection.find({'email': auth.username}))
 
         if bcrypt.checkpw(encoded_password, account_find['password']) and university_find is not None:
             print('The users study groups have been fetched')
