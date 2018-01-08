@@ -197,6 +197,7 @@ class StudyGroupsForAllUsers(Resource):
     @authenticated_request
     def get(self):
         auth = request.authorization
+        pdb.set_trace
 
         encoded_password = auth.password.encode('utf-8')
 
@@ -208,9 +209,12 @@ class StudyGroupsForAllUsers(Resource):
         university_collection = database.university
 
         university_find = list(university_collection.find({'university_name': name_of_university}))
+        
+        study_group_collection = database.study_groups
+        study_group_find = list(study_group_collection.find({"university_name": name_of_university}))
 
-        if bcrypt.checkpw(encoded_password, user_account_find['password']):
-            print('This the name of the users from that university find %s' %(university_find))
+        if bcrypt.checkpw(encoded_password, user_account_find['password']) and university_find is not None:
+            print(study_group_find)
 
 
 
